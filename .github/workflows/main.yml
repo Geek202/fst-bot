@@ -17,4 +17,4 @@ jobs:
         with:
           distribution: 'adopt' # See 'Supported distributions' for available options
           java-version: '15'
-      - run: "java -cp java com.github.fabricservertools.discord.FstDiscord -token${{ secrets.DISCORD_TOKEN }}"
+      - run: "java -cp fst-bot.main -token${{ secrets.DISCORD_TOKEN }}"
