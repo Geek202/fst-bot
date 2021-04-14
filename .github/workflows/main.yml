@@ -22,6 +22,6 @@ jobs:
       - name: Build bot
         run: ./gradlew shadowJar
       - name: Move to build/libs dir
-        run: cd build/libs
+        run: cd /build/libs
       - name: Run shadow jar file
         run: java -jar fst-bot-1.0-SNAPSHOT-shadow.jar -token"${{ secrets.DISCORD_TOKEN }}"
