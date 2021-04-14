@@ -21,9 +21,9 @@ jobs:
         run: chmod +x gradlew
       - name: Build bot
         run: ./gradlew shadowJar
-      - name: debug
-        run: ls
       - name: Move to build/libs dir
         run: cd build/libs/
+      - name: debug
+        run: ls
       - name: Run shadow jar file
         run: java -jar fst-bot-1.0-SNAPSHOT-shadow.jar -token"${{ secrets.DISCORD_TOKEN }}"
