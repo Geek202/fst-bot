@@ -21,6 +21,8 @@ jobs:
         run: chmod +x gradlew
       - name: Build bot
         run: ./gradlew shadowJar
+      - name: debug
+        run: ls
       - name: Move to build/libs dir
         run: cd build/libs/
       - name: Run shadow jar file
