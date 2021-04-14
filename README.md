@@ -19,7 +19,7 @@ Requires Java version 15 or greater
 
 OR 
 
-Set a system environment variable with your discord token and run:
+Set a system environment variable named `FST_DISCORD_TOKEN` with your discord token and run:
 
 `java -jar fst-bot-version-shadow.jar`
 
