@@ -17,8 +17,14 @@ Requires Java version 15 or greater
 
 `java -jar fst-bot-version-shadow.jar -token"<your_bot_token>"`
 
+OR 
+
+Set a system environment variable with your discord token and run:
+
+`java -jar fst-bot-version-shadow.jar`
+
 ### Commands
 
 Run `!help` in your discord to see a list of features
 
-This bot is pretty much custom-made for our server: I may however expose more commands to config values
+This bot is pretty much custom-made for our server: I may however expose more commands to config values in the future

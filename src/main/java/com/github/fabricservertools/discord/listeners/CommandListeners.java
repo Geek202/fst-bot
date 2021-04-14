@@ -22,6 +22,7 @@ public class CommandListeners extends ListenerAdapter {
         } else if (message.startsWith("stop") && (event.getChannel().getName().equals("bot") || Objects.requireNonNull(event.getMember()).isOwner())) {
             event.getChannel().sendMessage("Stopping FabricServerToolsBot").queue();
             event.getJDA().shutdownNow();
+            System.exit(0);
         }
     }
 
