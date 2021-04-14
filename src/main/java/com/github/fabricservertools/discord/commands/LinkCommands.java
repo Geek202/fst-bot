@@ -19,6 +19,8 @@ public class LinkCommands {
                 "React :yellow_circle: in #welcome to get they/them role",
                 "React :green_circle: in #welcome to get she/her role",
                 "!help: lists commands",
-                "!cf <mod>: links to the curseforge page of <mod>")).queue();
+                "!cf <mod>: links to the Curseforge page of <mod>",
+                "!github <user> repo>: links to the GitHub page of the repo specified",
+                "!stop: makes bot :crab:")).queue();
     }
 }
