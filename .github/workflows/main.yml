@@ -17,6 +17,8 @@ jobs:
         with:
           distribution: 'adopt' # See 'Supported distributions' for available options
           java-version: '15'
+      - name: Make gradle wrapper executable
+        run: chmod +x gradlew
       - name: Build bot
         run: ./gradlew shadowJar
       - name: Move to build/libs dir
