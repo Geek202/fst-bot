@@ -1,5 +1,5 @@
 name: run
-on: [push]
+on: [ push ]
 jobs:
   run:
     strategy:
@@ -17,4 +17,9 @@ jobs:
         with:
           distribution: 'adopt' # See 'Supported distributions' for available options
           java-version: '15'
-      - run: "java -cp fst-bot.main -token${{ secrets.DISCORD_TOKEN }}"
+      - name: Build bot
+        run: ./gradlew shadowJar
+      - name: Move to build/libs dir
+        run: cd build/libs
+      - name: Run shadow jar file
+        run: java -jar fst-bot-1.0-SNAPSHOT-shadow.jar -token"${{ secrets.DISCORD_TOKEN }}"

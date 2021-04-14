@@ -11,7 +11,7 @@ public class FstDiscord {
     public static void main(String[] args) {
         for (String arg : args) {
             if (arg.startsWith("-token")) {
-                String token = arg.replace("-token", "");
+                String token = arg.replace("-token", "").replaceAll("\"", "");
                 System.out.println("Found token in CLI args");
                 JDABuilder builder = JDABuilder.createDefault(token);
 
@@ -22,11 +22,15 @@ public class FstDiscord {
                     builder.build();
                 } catch (LoginException e) {
                     e.printStackTrace();
+                    exit("Invalid token in CLI args", -1);
                 }
             } else {
-                System.out.println("Failed to locate token in CLI args");
-                System.exit(-1);
+                exit("Failed to locate token in CLI args", -1);
             }
         }
+    }
+    public static void exit(String reason, int code) {
+        System.out.println(reason);
+        System.exit(code);
     }
 }
