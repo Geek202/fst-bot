@@ -16,15 +16,18 @@ public class PronounListeners extends ListenerAdapter {
 
         Role role;
         switch (event.getReactionEmote().toString()) {
-            case "RE:U+1f534":
+            case "RE:U+1f534" -> {
                 role = event.getGuild().getRolesByName("he/him", false).get(0);
                 event.getGuild().addRoleToMember(Objects.requireNonNull(event.getMember()), role).queue();
-            case "RE:U+1f7e1":
+            }
+            case "RE:U+1f7e1" -> {
                 role = event.getGuild().getRolesByName("they/them", false).get(0);
                 event.getGuild().addRoleToMember(Objects.requireNonNull(event.getMember()), role).queue();
-            case "RE:U+1f7e2":
+            }
+            case "RE:U+1f7e2" -> {
                 role = event.getGuild().getRolesByName("she/her", false).get(0);
                 event.getGuild().addRoleToMember(Objects.requireNonNull(event.getMember()), role).queue();
+            }
         }
     }
 
@@ -33,15 +36,18 @@ public class PronounListeners extends ListenerAdapter {
         if (!event.getChannel().getName().equals("welcome")) return;
         Role role;
         switch (event.getReactionEmote().toString()) {
-            case "RE:U+1f534":
+            case "RE:U+1f534" -> {
                 role = event.getGuild().getRolesByName("he/him", false).get(0);
                 event.getGuild().removeRoleFromMember(Objects.requireNonNull(event.getMember()), role).queue();
-            case "RE:U+1f7e1":
+            }
+            case "RE:U+1f7e1" -> {
                 role = event.getGuild().getRolesByName("they/them", false).get(0);
-                event.getGuild().removeRoleFromMember(Objects.requireNonNull(event.getMember()), role).queue();
-            case "RE:U+1f7e2":
+                event.getGuild().removeRoleFromMember(event.retrieveMember().complete(), role).queue();
+            }
+            case "RE:U+1f7e2" -> {
                 role = event.getGuild().getRolesByName("she/her", false).get(0);
                 event.getGuild().removeRoleFromMember(Objects.requireNonNull(event.getMember()), role).queue();
+            }
         }
     }
 }
