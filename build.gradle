@@ -1,7 +1,8 @@
 plugins {
-    id'java'
-    id'application'
-    id'com.github.johnrengelman.shadow' version '6.0.0'
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.4.32'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '6.0.0'
 }
 
 mainClassName = 'com.github.fabricservertools.discord.FstDiscord'
@@ -12,17 +13,25 @@ sourceCompatibility = 15
 
 repositories {
     maven {
-        name 'm2-dv8tion'
-        url 'https://m2.dv8tion.net/releases'
+        name = 'Kotlin Discord'
+        url = 'https://maven.kotlindiscord.com/repository/maven-public/'
     }
     mavenCentral()
 }
 
 dependencies {
-    implementation 'net.dv8tion:JDA:4.2.1_256'
+    implementation 'com.kotlindiscord.kord.extensions:kord-extensions:1.4.0-RC7'
 }
 
 shadowJar {
-    archiveClassifier.set("shadow")
+    archiveClassifier.set('shadow')
 }
+
 compileJava.options.encoding = 'UTF-8'
+
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
+        freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
+    }
+}
